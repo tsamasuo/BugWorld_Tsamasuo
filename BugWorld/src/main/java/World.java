@@ -9,12 +9,14 @@ import java.awt.FontMetrics;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import javax.swing.JPanel;
+import java.io.FileInputStream;
 
 public class World extends JPanel {
 
     private String name;
     protected int sizeX;
     protected int sizeY;
+    protected boolean state;
 
     private Font font = new Font("Arial", Font.BOLD, 24);
     FontMetrics metrics;
@@ -25,6 +27,31 @@ public class World extends JPanel {
         setPreferredSize(new Dimension(WIDTH, HEIGHT));
     }
 
+    public void updateWorld(StringBuffer buffer, World p)
+    {
+        int x = 0;
+
+        for (int i = 0; i < (p.sizeX * p.sizeY); i++)
+        {
+            if (i > 0 && (i % p.sizeX) == 0) {
+                buffer.append('\n');
+                if (((i / p.sizeX) % 2) == 1) {
+                    buffer.append(' ');
+                }
+            }
+
+            char last = ' ';
+            /*
+                code to update world with items. a if-else loop or case switch is required.
+             */
+
+            buffer.append(last);
+        }
+
+        return;
+    }
+
+
     //Logic to paint the hexagonal sell
     public void paintComponent(Graphics g) {
         Graphics2D g2d = (Graphics2D) g;
@@ -34,7 +61,7 @@ public class World extends JPanel {
         drawCellGridAdvanced(g2d, 5, 60);
     }
 
-    // Logic to draw heaxagonal polygons using the midpoint and radius against the y and x axis
+    // Logic to draw hexagonal polygons using the midpoint and radius against the y and x axis
 
     private void drawCellGridAdvanced(Graphics g, int n, int r) {
         double ang30 = Math.toRadians(30);
@@ -66,6 +93,16 @@ public class World extends JPanel {
         g.drawPolygon(cell);
         g.setColor(new Color(0xFFFFFF));
         // g.drawString(text, x - w/2, y + h/2);
+    }
+
+/*
+Gets the map data from a files in terms of obstacles, positions of food, home areas etc
+ */
+    private static void readMap(FileInputStream fis){
+        /*
+
+         */
+
     }
 
 

@@ -20,7 +20,7 @@ public class Cell extends Polygon implements CellItem{
     private boolean isHomeArea;
     private enum homeArea{blackAntHome,redAntHome}
     private boolean isFoodSource;
-    static final int SIDES =5;
+    static final int SIDES =6;
 
     private Point[] points = new Point[SIDES];
     private Point center = new Point(0, 0);
@@ -35,6 +35,7 @@ public class Cell extends Polygon implements CellItem{
         this.radius = radius;
         updatePoints();
     }
+
 
     public Cell(int x, int y, int radius) {
         this(new Point(x, y), radius);

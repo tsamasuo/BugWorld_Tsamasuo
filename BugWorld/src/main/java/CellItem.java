@@ -4,5 +4,4 @@
 public interface CellItem {
     public enum itemType{redAnt,blackAnt,obstacle,food,redMarker,blackMarker};
 
-
 }
