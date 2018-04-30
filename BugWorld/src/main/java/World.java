@@ -27,6 +27,10 @@ public class World extends JPanel {
         setPreferredSize(new Dimension(WIDTH, HEIGHT));
     }
 
+    /*
+        Load map contents and update all key positions as per loaded map
+     */
+ 
     public void updateWorld(StringBuffer buffer, World p)
     {
         int x = 0;
@@ -61,7 +65,6 @@ public class World extends JPanel {
         drawCellGridAdvanced(g2d, 5, 60);
     }
 
-    // Logic to draw hexagonal polygons using the midpoint and radius against the y and x axis
 
     private void drawCellGridAdvanced(Graphics g, int n, int r) {
         double ang30 = Math.toRadians(30);
@@ -84,8 +87,7 @@ public class World extends JPanel {
 
     private void drawCell(Graphics g, int x, int y, int r) {
         Cell cell = new Cell(x, y, r);
-        //String text = String.format("%s : %s", coord(posX), coord(posY));
-        //int w = metrics.stringWidth(text);
+
         int h = metrics.getHeight();
         g.setColor(new Color(0xFFFFFF));
         g.fillPolygon(cell);

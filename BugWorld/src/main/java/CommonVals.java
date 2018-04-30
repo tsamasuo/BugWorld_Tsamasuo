@@ -10,6 +10,8 @@ public interface CommonVals {
 
     public static final int SIDES = 5;
     public static final int ROUNDS = 100000;
+    public static final int WIDTH = 1024;
+    public static final int HEIGHT = 720;
     public int score =0;
 
 
